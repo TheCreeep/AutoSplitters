@@ -3,6 +3,7 @@ state("ProjectCoop-Win64-Shipping")
     int book_count : 0x442BBB0, 0x30, 0x570, 0x250;
     int in_game_time : 0x4442DF0, 0x1F0, 0x60, 0x2B0;
     int hud_state : 0x03F463E8, 0x8;
+    int is_main_menu : 0x0440CEB8, 0x1DC;
 }
 
 init{
@@ -18,7 +19,7 @@ startup {
 
 start{
     print("In in_game_time" + current.in_game_time);
-    if(settings["startOnLamp"] && current.in_game_time >= 13000 && current.book_count == 0) {
+    if(settings["startOnLamp"] && current.in_game_time >= 13000 && current.book_count == 0 && current.hud_state != 7 && current.is_main_menu != 1) {
         return true;
     }
 }
