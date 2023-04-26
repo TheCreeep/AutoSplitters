@@ -14,7 +14,13 @@
 
   Your timer resets when you restarts the map, if you get a PB (Or Best Split) you'll have to save your splits manually before the autosplitter resets.
   
+  - ### End on HUD Change 
+
+  This is the Safe Way to end timer (safe = Working in Solo AND Multi (Kinda)) But ~.7sec delay
   
+  - ### End when back in Spawn
+
+  **[SOLO ONLY]** The timer is ending when you grabbed 10 books and go back in spawn to leave.
   
 
 ## To do : 
