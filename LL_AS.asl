@@ -4,6 +4,7 @@ state("ProjectCoop-Win64-Shipping")
     int in_game_time : 0x4442DF0, 0x1F0, 0x60, 0x2B0;
     int hud_state : 0x03F463E8, 0x8;
     int is_main_menu : 0x0440CEB8, 0x1DC;
+    int is_in_spawn : 0x04449AC8, 0x118,0x50, 0x930, 0x2B0;
 }
 
 init{
@@ -12,9 +13,11 @@ init{
 
 startup {
     print("Startup Initiated");
-    settings.Add("splitOnBook", false, "Split on Books");
-    settings.Add("resetOnRestart", false, "Reset on Restart Map");
-    settings.Add("startOnLamp", false, "Auto Start");
+    settings.Add("startOnLamp", true, "Auto Start");
+    settings.Add("splitOnBook", true, "Split on Books");
+    settings.Add("resetOnRestart", true, "Reset on Restart Map");
+    settings.Add("endOnHUD", false, "End on HUD Disappear (Safe in multi but .5 delay)");
+    settings.Add("endOnSpawn", true, "End on Spawn (SOLO ONLY)");
 }
 
 start{
@@ -29,7 +32,11 @@ split {
         return true;
     }
     
-    if(current.book_count == 10 && current.hud_state == 3) {
+    if(settings["endOnHUD"] && current.book_count == 10 && current.hud_state == 3) {
+        return true;
+    }
+
+    if(settings["endOnSpawn"] && current.book_count == 10 && current.is_in_spawn != 0) {
         return true;
     }
 }
