@@ -16,8 +16,8 @@
   
 - ### End on HUD Change 
 
-  This is the Safe Way to end timer (safe = Working in Solo AND Multi (Kinda)) But ~.7sec delay
+  This is the Safe Way to end timer (safe = Working in Solo AND Multi (Kinda)) But ~.7sec delay on LiveSplit Timer End
   
 - ### End when back in Spawn
 
-  **[SOLO ONLY]** The timer is ending when you grabbed 10 books and go back in spawn to leave.
+  **[SOLO ONLY]** The timer is ending when you grabbed 10 books and go back in spawn to leave. No Delay on LiveSplit Timer End
