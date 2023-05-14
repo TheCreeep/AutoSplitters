@@ -2,8 +2,7 @@ state("ProjectCoop-Win64-Shipping")
 {
     int book_count : 0x442BBB0, 0x30, 0x570, 0x250;
     int in_game_time : 0x4442DF0, 0x1F0, 0x60, 0x2B0;
-    int hud_state : 0x03F20128, 0x248;
-    int is_main_menu : 0x0440CEB8, 0x1DC;
+    int is_in_game: 0x0443E740, 0x110, 0x974;
     int swim_spawn : 0x04449AC8, 0x118,0x50, 0x4C0, 0x2B0;
     int hhs_spawn : 0x04449AC8, 0x118,0x50, 0x6D0, 0x2B0;
     int crux_spawn : 0x04449AC8, 0x118,0x50, 0x7E0, 0x2B0;
@@ -26,8 +25,7 @@ startup {
 }
 
 start{
-    print("In in_game_time" + current.in_game_time);
-    if(settings["startOnLamp"] && current.in_game_time >= 13000 && current.book_count == 0 && current.hud_state != 7 && current.is_main_menu != 1) {
+    if(settings["startOnLamp"] && current.in_game_time >= 13000 && current.in_game_time <= 16000 && current.book_count == 0 && current.is_in_game == 1) {
         return true;
     }
 }
