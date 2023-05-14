@@ -22,7 +22,6 @@ startup {
     settings.Add("startOnLamp", true, "Auto Start");
     settings.Add("splitOnBook", true, "Split on Books");
     settings.Add("resetOnRestart", true, "Reset on Restart Map");
-    settings.Add("endOnHUD", false, "End on HUD Disappear (Safe in multi but .5 delay)");
     settings.Add("endOnSpawn", true, "End on Spawn (SOLO ONLY)");
 }
 
@@ -35,10 +34,6 @@ start{
 
 split { 
     if(settings["splitOnBook"] && (current.book_count != old.book_count) && (current.book_count != 0 ) ) {
-        return true;
-    }
-    
-    if(settings["endOnHUD"] && current.book_count == 10 && current.hud_state == 3) {
         return true;
     }
 
